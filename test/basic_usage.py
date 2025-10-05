@@ -1,5 +1,5 @@
 """
-Basic usage example for Wazuh SecRoBERTa model
+Basic usage example for Siem SecRoBERTa model
 """
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
@@ -7,7 +7,7 @@ import torch
 
 def classify_log(log_text: str, model_path: str = ".."):
     """
-    Classify a security log using the Wazuh SecRoBERTa model
+    Classify a security log using the Siem SecRoBERTa model
 
     Args:
         log_text: The log message to classify
@@ -48,7 +48,7 @@ if __name__ == "__main__":
         "Unauthorized access attempt to /etc/passwd",
     ]
 
-    print("Wazuh SecRoBERTa - Security Log Classification\n")
+    print("Siem SecRoBERTa - Security Log Classification\n")
     print("=" * 70)
 
     for log in test_logs:
