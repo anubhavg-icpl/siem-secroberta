@@ -17,7 +17,7 @@ def classify_from_hub(log_text: str):
     # Load pipeline from hub
     classifier = pipeline(
         "text-classification",
-        model="pyToshka/wazuh-secroberta-full-v1"
+        model="mranv/siem-secroberta-full-v1"
     )
 
     # Classify
