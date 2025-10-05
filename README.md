@@ -3,7 +3,7 @@ license: apache-2.0
 tags:
 - security
 - cybersecurity
-- wazuh
+- siem
 - transformer
 - roberta
 - secroberta
@@ -12,7 +12,7 @@ tags:
 language:
 - en
 datasets:
-- wazuh-assist-dataset
+- siem-assist-dataset
 metrics:
 - accuracy
 - precision
@@ -22,11 +22,11 @@ library_name: transformers
 pipeline_tag: text-classification
 ---
 
-# Wazuh SecRoBERTa Security Log Classifier
+# Siem SecRoBERTa Security Log Classifier
 
 ## Model Description
 
-This is a fine-tuned SecRoBERTa model for classifying Wazuh security logs into three categories:
+This is a fine-tuned SecRoBERTa model for classifying Siem security logs into three categories:
 - **Benign (0)**: Normal, safe activities
 - **Suspicious (1)**: Potentially concerning activities that require monitoring
 - **Malicious (2)**: Confirmed threats requiring immediate action
@@ -46,7 +46,7 @@ The model is based on [jackaduma/SecRoBERTa](https://huggingface.co/jackaduma/Se
 - **Training Framework**: PyTorch + HuggingFace Transformers + PEFT
 - **Loss Function**: Focal Loss (for handling class imbalance)
 - **Optimization**: AdamW with learning rate scheduling
-- **Data**: Wazuh security logs
+- **Data**: Siem security logs
 
 ## Usage
 
@@ -57,7 +57,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 import torch
 
 # Load model and tokenizer
-model_name = "pyToshka/wazuh-secroberta-full-v1"
+model_name = "mranv/siem-secroberta-full-v1"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForSequenceClassification.from_pretrained(model_name)
 
@@ -80,10 +80,10 @@ print(f"Prediction: {prediction}")
 ### Using the project's custom class:
 
 ```python
-from src.models.secroberta import WazuhSecRoBERTa
+from src.models.secroberta import SiemSecRoBERTa
 
 # Load model
-model = WazuhSecRoBERTa.load_model("pyToshka/wazuh-secroberta-full-v1")
+model = SiemSecRoBERTa.load_model("mranv/siem-secroberta-full-v1")
 
 # Make prediction
 log_text = "Failed login attempt from IP 192.168.1.100"
@@ -93,7 +93,7 @@ print(f"Prediction: {prediction} (confidence: {confidence:.3f})")
 
 ## Performance
 
-The model achieves strong performance on Wazuh log classification:
+The model achieves strong performance on Siem log classification:
 - High precision for malicious activity detection
 - Good recall for suspicious activity monitoring
 - Balanced accuracy across all three classes
@@ -108,16 +108,14 @@ This model can be deployed using:
 ## Citation
 
 ```bibtex
-@misc{wazuh-assist-2025,
-  title={Wazuh SecRoBERTa Security Log Classifier},
+@misc{siem-assist-2025,
+  title={Siem SecRoBERTa Security Log Classifier},
   author={Your Organization},
   year={2024},
-  howpublished={\url{https://huggingface.co/pyToshka/wazuh-secroberta-full-v1}},
+  howpublished={\url{https://huggingface.co/mranv/siem-secroberta-full-v1}},
 }
 ```
 
 ## License
 
 BSD 3-Clause License
-
-
