@@ -1,6 +1,6 @@
 # Test Examples
 
-Sample Python scripts demonstrating how to use the Wazuh SecRoBERTa model.
+Sample Python scripts demonstrating how to use the Siem SecRoBERTa model.
 
 ## Setup
 
